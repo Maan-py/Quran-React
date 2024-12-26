@@ -1,17 +1,20 @@
 // import React from "react";
-// import { Bell, Settings, User } from "lucide-react";
+import { Bell, Settings, User } from "lucide-react";
 
 function TopNav() {
   return (
-    <nav className="border-b border-gray-800 bg-gray-950">
-      <div className="container mx-auto px-4 h-14 flex items-center justify-between">
-        <div className="text-teal-500 font-semibold">Quran.com</div>
-
-        <div className="flex items-center gap-2">
-          <button className="text-gray-400 p-2 hover:bg-gray-800 rounded-full">{/* <Bell className="h-5 w-5" /> */}</button>
-          <button className="text-gray-400 p-2 hover:bg-gray-800 rounded-full">{/* <Settings className="h-5 w-5" /> */}</button>
-          <button className="text-gray-400 p-2 hover:bg-gray-800 rounded-full">{/* <User className="h-5 w-5" /> */}</button>
-        </div>
+    <nav className=" bg-[#1d232a] z-50 h-16 flex items-center justify-between px-10 border-b border-gray-800 sticky top-0">
+      <h1 className="font-bold text-white-500 text-xl">Quran</h1>
+      <div className="flex items-center gap-2">
+        <button className="text-gray-400 p-2 hover:bg-gray-800 rounded-full">
+          <Bell className="h-5 w-5" />
+        </button>
+        <button className="text-gray-400 p-2 hover:bg-gray-800 rounded-full">
+          <Settings className="h-5 w-5" />
+        </button>
+        <button className="text-gray-400 p-2 hover:bg-gray-800 rounded-full">
+          <User className="h-5 w-5" />
+        </button>
       </div>
     </nav>
   );
