@@ -5,7 +5,7 @@ import "../App.css";
 import "../index.css";
 import { useEffect, useState } from "react";
 
-function App() {
+function Home() {
   const [surahs, setSurahs] = useState([]);
   const [listSurahBaru, setListSurahBaru] = useState([]);
   useEffect(() => {
@@ -16,13 +16,14 @@ function App() {
         throw new Error(e);
       });
   }, []);
+
   return (
     <div className="min-h-screen bg-slate-800">
       <TopNav></TopNav>
-      <InputSearch surahs={surahs} setListSurahBaru={setListSurahBaru}></InputSearch>
+      <InputSearch surahs={surahs} setListSurahBaru={setListSurahBaru} width={5} height={22}></InputSearch>
       <TabList surahs={listSurahBaru.length > 0 ? listSurahBaru : surahs} />
     </div>
   );
 }
 
-export default App;
+export default Home;
