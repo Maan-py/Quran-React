@@ -9,7 +9,7 @@ function Home() {
   const [surahs, setSurahs] = useState([]);
   const [listSurahBaru, setListSurahBaru] = useState([]);
   useEffect(() => {
-    fetch(`${import.meta.env.VITE_API_BASE_URL}/chapters`)
+    fetch(`${import.meta.env.VITE_API_BASE_URL}/chapters?language=id`)
       .then((response) => response.json())
       .then((data) => setSurahs(data.chapters))
       .catch((e) => {
@@ -20,7 +20,9 @@ function Home() {
   return (
     <div className="min-h-screen bg-slate-800">
       <TopNav></TopNav>
-      <InputSearch surahs={surahs} setListSurahBaru={setListSurahBaru} width={5} height={22}></InputSearch>
+      <div className="mt-24">
+        <InputSearch surahs={surahs} setListSurahBaru={setListSurahBaru} w="w-1/2" h="h-14"></InputSearch>
+      </div>
       <TabList surahs={listSurahBaru.length > 0 ? listSurahBaru : surahs} />
     </div>
   );
