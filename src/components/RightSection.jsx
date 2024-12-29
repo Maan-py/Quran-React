@@ -25,6 +25,7 @@ const RightSection = ({ selectedSurahName, selectedSurahNumber }) => {
 };
 
 const ItemAyat = ({ detailAyat }) => {
+  console.log(detailAyat);
   return (
     <div>
       {detailAyat.map((detail) => (

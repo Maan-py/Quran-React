@@ -5,8 +5,8 @@ import RightSection from "../components/RightSection";
 import TopNav from "../components/TopNav";
 
 const SurahDetail = () => {
-  const { id } = useParams();
-  const [selectedSurahName, setSelectedSurahName] = useState("");
+  const { id, name_simple } = useParams();
+  const [selectedSurahName, setSelectedSurahName] = useState(name_simple);
   const [selectedSurahNumber, setSelectedSurahNumber] = useState(id);
 
   return (

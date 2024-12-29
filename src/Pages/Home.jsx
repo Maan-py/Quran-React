@@ -8,6 +8,12 @@ import { useEffect, useState } from "react";
 function Home() {
   const [surahs, setSurahs] = useState([]);
   const [listSurahBaru, setListSurahBaru] = useState([]);
+  const [selectedSurah, setSelectedSurah] = useState("");
+
+  const handleSurahClick = (nameSimple) => {
+    setSelectedSurah(nameSimple);
+  };
+
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_BASE_URL}/chapters?language=en`)
       .then((response) => response.json())
