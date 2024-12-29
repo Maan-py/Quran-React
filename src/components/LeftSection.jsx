@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import InputSearch from "./InputSearch";
+import { Link } from "react-router-dom";
 
 const LeftSection = ({ setSelectedSurahName, setSelectedSurahNumber }) => {
   const [surahs, setSurahs] = useState([]);
@@ -44,21 +45,23 @@ const LeftSection = ({ setSelectedSurahName, setSelectedSurahNumber }) => {
 
 const ItemSurah = ({ number, surahName, isSelected, translated_name, revelation_place, verses_count, onClick }) => {
   return (
-    <div className="flex justify-between items-center px-4 pb-2  mt-2 pl-8 border-b border-gray-700">
-      <div className={`flex flex-col w-full h-20 p-2 rounded-md group cursor-pointer hover:bg-slate-600 ${isSelected ? "bg-slate-600" : ""}`} onClick={onClick}>
-        <div className="flex flex-row">
-          <h2 className="text-white w-12 text-center">{number}.</h2>
-          <h2 className="text-white flex-1">{surahName}</h2>
-        </div>
-        <div className="flex flex-col ml-12">
-          <p className="text-sm">{translated_name}</p>
-          <div className="flex">
-            <p className="mr-2">{revelation_place.charAt(0).toUpperCase() + revelation_place.slice(1)},</p>
-            <p>{verses_count} ayat</p>
+    <Link to={`/surah/${number}/${surahName}`}>
+      <div className="flex justify-between items-center px-4 pb-2  mt-2 pl-8 border-b border-gray-700">
+        <div className={`flex flex-col w-full h-20 p-2 rounded-md group cursor-pointer hover:bg-slate-600 ${isSelected ? "bg-slate-600" : ""}`} onClick={onClick}>
+          <div className="flex flex-row">
+            <h2 className="text-white w-12 text-center">{number}.</h2>
+            <h2 className="text-white flex-1">{surahName}</h2>
+          </div>
+          <div className="flex flex-col ml-12">
+            <p className="text-sm">{translated_name}</p>
+            <div className="flex">
+              <p className="mr-2">{revelation_place.charAt(0).toUpperCase() + revelation_place.slice(1)},</p>
+              <p>{verses_count} ayat</p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
