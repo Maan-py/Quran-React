@@ -19,7 +19,7 @@ const LeftSection = ({ setSelectedSurahName, setSelectedSurahNumber }) => {
 
   return (
     <section className="basis-1/4 bg-[#1d232a] hidden overflow-auto lg:block">
-      <InputSearch w="w-3/4" h="h-10" surahs={surahs} setListSurahBaru={setListSurahBaru} />
+      <InputSearch w="w-full" h="h-10" surahs={surahs} setListSurahBaru={setListSurahBaru} />
       <div className="pt-5">
         {displayedSurahs.map((surah, index) => (
           <ItemSurah

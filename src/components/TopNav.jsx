@@ -1,11 +1,14 @@
-import { Bell, Settings, User } from "lucide-react";
+import { Bell, Settings, User, Menu } from "lucide-react";
 
 function TopNav() {
   return (
-    <nav className="bg-[#1d232a] z-50 h-16 flex items-center justify-between px-10 border-b border-gray-800 sticky top-0">
-      <div className="flex flex-row">
-        <a href="/" className="flex">
-          <img src="/app-logo.svg" alt="app logo" className="mr-2 mt-1" width={25} />
+    <nav className="bg-[#1d232a] z-50 h-16 flex items-center justify-between pl-5 pr-5 border-b border-gray-800 sticky top-0">
+      <div className="flex flex-row items-center">
+        <div className="md:hidden">
+          <Menu size={30} />
+        </div>
+        <a href="/" className="flex items-center">
+          <img src="/app-logo.svg" alt="app logo" className="ml-4 mr-2 mt-1" width={25} />
           <h1 className="font-bold text-white-500 text-xl">Quran</h1>
         </a>
       </div>
