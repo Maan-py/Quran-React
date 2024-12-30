@@ -26,7 +26,6 @@ function Home() {
   return (
     <div className="min-h-screen bg-slate-800 ">
       <TopNav></TopNav>
-
       <div className="mt-24">
         <InputSearch surahs={surahs} setListSurahBaru={setListSurahBaru} w="w-1/2" h="h-14" />
       </div>

@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 import InputSearch from "./InputSearch";
 import { Link } from "react-router-dom";
+import { X } from "lucide-react";
 
-const LeftSection = ({ setSelectedSurahName, setSelectedSurahNumber }) => {
+const LeftSection = ({ setSelectedSurahName, setSelectedSurahNumber, isOpen, onClose }) => {
   const [surahs, setSurahs] = useState([]);
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [listSurahBaru, setListSurahBaru] = useState([]);
@@ -19,7 +20,12 @@ const LeftSection = ({ setSelectedSurahName, setSelectedSurahNumber }) => {
   const displayedSurahs = listSurahBaru.length > 0 ? listSurahBaru : surahs;
 
   return (
-    <section className="basis-1/4 bg-[#1d232a] hidden overflow-auto lg:block">
+    <section className={`basis-1/4 fixed lg:static top-0 left-0 h-full bg-[#1d232a] overflow-auto z-40 transform transition-transform duration-300 lg:translate-x-0 ${isOpen ? "translate-x-0" : "-translate-x-full"}`}>
+      <div className="flex justify-end p-4">
+        {/* <button onClick={onClose}>
+          <X size={25} className="text-white" />
+        </button> */}
+      </div>
       <InputSearch w="w-full" h="h-10" surahs={surahs} setListSurahBaru={setListSurahBaru} />
       <div className="pt-5">
         {displayedSurahs.map((surah, index) => (
@@ -33,8 +39,9 @@ const LeftSection = ({ setSelectedSurahName, setSelectedSurahNumber }) => {
             isSelected={selectedIndex === index}
             onClick={() => {
               setSelectedIndex(index);
-              setSelectedSurahName(surah.name_simple); // Set nama surah yang dipilih
+              setSelectedSurahName(surah.name_simple);
               setSelectedSurahNumber(surah.id);
+              onClose(); // Tutup LeftSection setelah klik
             }}
           />
         ))}
@@ -46,8 +53,8 @@ const LeftSection = ({ setSelectedSurahName, setSelectedSurahNumber }) => {
 const ItemSurah = ({ number, surahName, isSelected, translated_name, revelation_place, verses_count, onClick }) => {
   return (
     <Link to={`/surah/${number}/${surahName}`}>
-      <div className="flex justify-between items-center px-4 pb-2  mt-2 pl-8 border-b border-gray-700">
-        <div className={`flex flex-col w-full h-20 p-2 rounded-md group cursor-pointer hover:bg-slate-600 ${isSelected ? "bg-slate-600" : ""}`} onClick={onClick}>
+      <div className={`flex justify-between items-center px-4 pb-2 mt-2 pl-8 border-b border-gray-700 ${isSelected ? "bg-slate-600" : ""}`} onClick={onClick}>
+        <div className="flex flex-col w-full h-20 p-2 rounded-md group cursor-pointer hover:bg-slate-600">
           <div className="flex flex-row">
             <h2 className="text-white w-12 text-center">{number}.</h2>
             <h2 className="text-white flex-1">{surahName}</h2>
