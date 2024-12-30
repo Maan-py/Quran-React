@@ -21,8 +21,8 @@ const LeftSection = ({ setSelectedSurahName, setSelectedSurahNumber, isOpen, onC
 
   return (
     <section
-      className={`basis-1/4 fixed lg:static top-0 left-0 h-full bg-[#1d232a] overflow-auto z-40 transform transition-transform duration-300 lg:translate-x-0 ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
-      style={{ width: "75%" }} // Menetapkan lebar sidebar tetap
+      className={`basis-1/4 w-3/4 fixed lg:static top-0 left-0 h-full bg-[#1d232a] overflow-auto z-40 transform transition-transform duration-300 lg:translate-x-0 ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
+      // Menetapkan lebar sidebar tetap
     >
       <div className="flex justify-end p-4">
         {/* <button onClick={onClose}>

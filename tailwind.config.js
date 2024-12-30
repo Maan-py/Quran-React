@@ -5,7 +5,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        surah: ["QCFv2", "sans-serif"],
+        surah: ["Quran", "sans-serif"],
       },
     },
   },
