@@ -17,7 +17,7 @@ const InputSearch = ({ surahs, setListSurahBaru, w = "w-1/2", h = "h-14" }) => {
   };
 
   return (
-    <div className="flex w-full justify-center mt-10">
+    <div className="flex w-full justify-center mt-10 text-white">
       <label className={`input input-bordered rounded-xl flex items-center md:w-3/4 w-3/4  ${w} ${h} gap-2`}>
         <input type="text" className="grow w-full" placeholder="Search Surah" onChange={onChangeHandler} value={search} />
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="h-4 w-4 opacity-70">

@@ -95,7 +95,7 @@ const ItemAyat = ({ detailAyat, setBookmark, onBookmark }) => {
               {detail.words &&
                 detail.words.map((word, index) => (
                   <div key={index} className="text-lg text-left break-words mr-1">
-                    <p className="text-sm  text-right break-words">{word.transliteration.text}</p>
+                    <p className="text-sm text-white text-right break-words">{word.transliteration.text}</p>
                   </div>
                 ))}
             </div>

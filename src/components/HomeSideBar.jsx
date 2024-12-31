@@ -5,7 +5,7 @@ const HomeSideBar = ({ isOpen }) => {
       <div className="flex flex-col justify-center items-center w-full">
         <div className="rounded-xl fixed top-[130px] flex flex-col items-center">
           <img src="/ramadan.png" alt="logo" width={70} height={70} />
-          <h3 className="font-bold text-2xl">Quran App</h3>
+          <h3 className="font-bold text-white text-2xl">Quran App</h3>
         </div>
         {/* Menu */}
         <div
