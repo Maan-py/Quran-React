@@ -2,48 +2,61 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Bismillah from "./Bismillah";
 
-const RightSection = ({ selectedSurahName, selectedSurahNumber }) => {
+const RightSection = ({ selectedSurahName }) => {
   const { id } = useParams();
-  const [onBookmark, setOnBookmark] = useState({});
+  const [onBookmark, setOnBookmark] = useState([]);
   const [detailAyat, setdetailAyat] = useState([]);
 
   const setBookmark = (value) => {
-    let bookmark = localStorage.getItem("bookmark");
+    let bookmarks = localStorage.getItem("bookmark");
 
     try {
-      bookmark = bookmark ? JSON.parse(bookmark) : null;
+      bookmarks = bookmarks ? JSON.parse(bookmarks) : [];
     } catch {
-      bookmark = null;
+      bookmarks = [];
     }
 
-    if (bookmark && bookmark.id === value.id) {
-      localStorage.removeItem("bookmark");
-      setOnBookmark({});
-      return;
-    }
+    const isAlreadyBookmarked = bookmarks.some((bookmark) => bookmark.id === value.id);
 
-    localStorage.setItem("bookmark", JSON.stringify(value));
-    setOnBookmark(value);
+    if (isAlreadyBookmarked) {
+      const updatedBookmarks = bookmarks.filter((bookmark) => bookmark.id !== value.id);
+      localStorage.setItem("bookmark", JSON.stringify(updatedBookmarks));
+      setOnBookmark(updatedBookmarks);
+    } else {
+      const updatedBookmarks = [...bookmarks, value];
+      localStorage.setItem("bookmark", JSON.stringify(updatedBookmarks));
+      setOnBookmark(updatedBookmarks);
+    }
   };
 
   useEffect(() => {
-    let bookmark = localStorage.getItem("bookmark");
+    let bookmarks = localStorage.getItem("bookmark");
     try {
-      bookmark = bookmark ? JSON.parse(bookmark) : null;
+      bookmarks = bookmarks ? JSON.parse(bookmarks) : [];
     } catch {
-      bookmark = null;
+      bookmarks = [];
     }
-    if (bookmark) setOnBookmark(bookmark);
+
+    if (bookmarks.length > 0) {
+      setOnBookmark(bookmarks);
+    }
   }, []);
 
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_BASE_URL}/verses/by_chapter/${id}?fields=text_uthmani&per_page=286&translations=33&words=true`)
       .then((response) => response.json())
-      .then((data) => setdetailAyat(data.verses))
+      .then((data) => {
+        // Tambahkan properti name_simple ke setiap item
+        const updatedVerses = data.verses.map((verse) => ({
+          ...verse, // Salin semua properti lama
+          name_simple: selectedSurahName, // Tambahkan properti baru
+        }));
+        setdetailAyat(updatedVerses);
+      })
       .catch((e) => {
         throw new Error(e);
       });
-  }, [id]);
+  }, [id, selectedSurahName]); // Pastikan selectedSurahName ada di dependency array
 
   return (
     <section className="w-full overflow-auto bg-slate-800 flex flex-col">
@@ -59,6 +72,16 @@ const RightSection = ({ selectedSurahName, selectedSurahNumber }) => {
 
 const ItemAyat = ({ detailAyat, setBookmark, onBookmark }) => {
   const { name_simple } = useParams();
+
+  useEffect(() => {
+    const ayatNumber = window.location.hash.replace("#", ""); // Mendapatkan nomor ayat dari hash
+    if (ayatNumber) {
+      const element = document.getElementById(ayatNumber); // Menemukan elemen dengan ID yang sesuai
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" }); // Menggulirkan elemen ke tampilan
+      }
+    }
+  }, []);
 
   return (
     <>
@@ -78,15 +101,20 @@ const ItemAyat = ({ detailAyat, setBookmark, onBookmark }) => {
             </div>
           </div>
           <span className="mb-2 flex text-white">
+            <span className="mr-2">{detail.verse_number}. </span>
             <span dangerouslySetInnerHTML={{ __html: detail.translations[0].text }} />
           </span>
           <div
-            className="absolute  -bottom-4 left-0 bg-slate-800 hover:cursor-pointer"
+            className="absolute -bottom-4 left-0 bg-slate-800 hover:cursor-pointer"
             onClick={() => {
               setBookmark(detail);
-              console.log(onBookmark);
             }}>
-            <img src={onBookmark.id === detail.id ? "/bookmark-selected.png" : "/bookmark-unselected.png"} alt={onBookmark.id === detail.id ? "/bookmark-selected.png" : "/bookmark-unselected.png"} width={30} height={30} />
+            <img
+              src={onBookmark.some((bookmark) => bookmark.id === detail.id) ? "/bookmark-selected.png" : "/bookmark-unselected.png"}
+              alt={onBookmark.some((bookmark) => bookmark.id === detail.id) ? "Bookmark Selected" : "Bookmark Unselected"}
+              width={30}
+              height={30}
+            />
           </div>
         </div>
       ))}
