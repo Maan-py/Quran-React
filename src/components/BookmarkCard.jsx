@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
 const BookmarkCard = ({ number, index, ayat, name_simple }) => {

@@ -89,7 +89,7 @@ const ItemAyat = ({ detailAyat, setBookmark, onBookmark }) => {
       {detailAyat.map((detail) => (
         <div key={detail.id} id={detail.verse_number} className="w-full px-10 py-10 border-b border-slate-600 p-2 relative">
           <div className="w-full h-full flex flex-col justify-end">
-            <h3 className="text-2xl font-bold font-surah block text-right break-words mb-2">{detail.text_uthmani}</h3>
+            <h3 className="text-2xl text-white font-bold font-surah block text-right break-words mb-2">{detail.text_uthmani}</h3>
             <div className="flex flex-wrap justify-start my-4">
               {/* Menambahkan transliterasi */}
               {detail.words &&
