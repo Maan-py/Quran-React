@@ -64,7 +64,7 @@ const ItemAyat = ({ detailAyat, setBookmark, onBookmark }) => {
     <>
       <div className="flex justify-center mt-5 mb-10">{name_simple !== "Al-Fatihah" && name_simple !== "At-Tawbah" ? <Bismillah /> : ""}</div>
       {detailAyat.map((detail) => (
-        <div key={detail.id} id={detail.id} className="w-full px-10 py-10 border-b border-slate-600 p-2 relative">
+        <div key={detail.id} id={detail.verse_number} className="w-full px-10 py-10 border-b border-slate-600 p-2 relative">
           <div className="w-full h-full flex flex-col justify-end">
             <h3 className="text-2xl font-bold font-surah block text-right break-words mb-2">{detail.text_uthmani}</h3>
             <div className="flex flex-wrap justify-start my-4">

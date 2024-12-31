@@ -11,13 +11,13 @@ const SurahDetail = () => {
   const [isLeftSectionOpen, setIsLeftSectionOpen] = useState(false); // State untuk LeftSection
 
   return (
-    <>
+    <div className="scroll-smooth">
       <TopNav toggleLeftSection={() => setIsLeftSectionOpen(!isLeftSectionOpen)} />
       <div className="h-[calc(100vh-4rem)] bg-slate-800 flex flex-row w-full relative">
         <LeftSection isOpen={isLeftSectionOpen} setSelectedSurahName={setSelectedSurahName} setSelectedSurahNumber={setSelectedSurahNumber} onClose={() => setIsLeftSectionOpen(false)} />
         <RightSection selectedSurahName={selectedSurahName} selectedSurahNumber={selectedSurahNumber} />
       </div>
-    </>
+    </div>
   );
 };
 
