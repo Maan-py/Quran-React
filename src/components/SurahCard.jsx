@@ -13,11 +13,11 @@ const SurahCard = ({ number, name_simple, name_arabic, translated_name, verses_c
               <div className="flex items-center gap-2">
                 <h3 className="font-medium">{name_simple}</h3>
               </div>
-              <p className="text-sm text-gray-400 group-hover:text-teal-300">{translated_name}</p>
+              <p className="text-sm text-white group-hover:text-teal-300">{translated_name}</p>
             </div>
           </div>
-          <div className="text-sm text-gray-400 group-hover:text-teal-300 flex flex-col items-center">
-            <span className="text-gray-400 font-surah">{name_arabic}</span>
+          <div className="text-sm text-white group-hover:text-teal-300 flex flex-col items-center">
+            <span className="text-white font-surah">{name_arabic}</span>
             <span className="mt-1">{verses_count} Ayat</span>
           </div>
         </div>

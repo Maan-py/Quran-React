@@ -8,7 +8,8 @@ const HomeSideBar = ({ isOpen }) => {
           <h3 className="font-bold text-2xl">Quran App</h3>
         </div>
         {/* Menu */}
-        <div className="w-3/4 flex flex-col justify-center text-gray-400 space-y-10 font-semibold">
+        <div
+          className="w-3/4 flex flex-col justify-center text-white space-y-10 font-semibold">
           <Link to={`/surah/1/Al-Fatihah`}>
             <div className="h-10 flex justify-center items-center text-xl border-b-[1px] border-b-gray-400 rounded-lg hover:border hover:border-gray-400 hover:rounded-md">Read Quran</div>
           </Link>

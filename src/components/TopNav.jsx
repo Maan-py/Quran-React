@@ -21,22 +21,22 @@ function TopNav({ toggleLeftSection }) {
         </a>
       </div>
       <div className="flex items-center gap-2">
-        <button className="text-gray-400 p-2 hover:bg-gray-800 rounded-full flex">
+        <button className="text-white p-2 hover:bg-gray-800 rounded-full flex">
           <a href="/bookmark" className="flex justify-center items-center">
             <Bookmark className="h-5 w-5 mx-2" /> <span className="flex justify-center items-center">Bookmark</span>
           </a>
         </button>
-        <button className="text-gray-400 p-2 hover:bg-gray-800 rounded-full flex">
+        <button className="text-white p-2 hover:bg-gray-800 rounded-full flex">
           <a href="/">
             <div className="h-5 w-5 mx-2">
               <House />
             </div>
           </a>
         </button>
-        {/* <button className="text-gray-400 p-2 hover:bg-gray-800 rounded-full">
+        {/* <button className="text-white p-2 hover:bg-gray-800 rounded-full">
           <Settings className="h-5 w-5" />
         </button>
-        <button className="text-gray-400 p-2 hover:bg-gray-800 rounded-full">
+        <button className="text-white p-2 hover:bg-gray-800 rounded-full">
           <User className="h-5 w-5" />
         </button> */}
       </div>

@@ -17,10 +17,10 @@ const BookmarkCard = ({ number, index, ayat, name_simple }) => {
               <div className="flex items-center gap-2">
                 <h3 className="font-medium">{name_simple}</h3>
               </div>
-              <div className="text-sm text-gray-400 group-hover:text-teal-300 mb-2 mt-2">
+              <div className="text-sm text-white group-hover:text-teal-300 mb-2 mt-2">
                 <span className="mt-1">Ayat {ayatNumber}</span>
               </div>
-              <p className="text-sm text-gray-400 group-hover:text-teal-300 mb-2">{ayat}</p>
+              <p className="text-sm text-white group-hover:text-teal-300 mb-2">{ayat}</p>
             </div>
           </div>
         </div>
