@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 const BookmarkCard = ({ number, index, ayat, name_simple }) => {
   const parts = number.split(":");
@@ -6,7 +7,7 @@ const BookmarkCard = ({ number, index, ayat, name_simple }) => {
   const chapterNumber = parts[0];
   const ayatNumber = parts[1];
   return (
-    <Link to={`/surah/${chapterNumber}/${encodeURIComponent(name_simple)}#${ayatNumber}`} className="block">
+    <HashLink smooth to={`/surah/${chapterNumber}/${encodeURIComponent(name_simple)}#${ayatNumber}`} className="block">
       <div className="bg-gray-900 rounded-lg p-4 border border-gray-500 hover:border-teal-300 hover:border transition-colors cursor-pointer group">
         <div className="flex items-start justify-between">
           <div className="flex items-center gap-3">
@@ -25,7 +26,7 @@ const BookmarkCard = ({ number, index, ayat, name_simple }) => {
           </div>
         </div>
       </div>
-    </Link>
+    </HashLink>
   );
 };
 
