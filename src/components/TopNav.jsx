@@ -10,7 +10,7 @@ function TopNav({ toggleLeftSection }) {
         </button>
         <a href="/" className="flex items-center ml-4">
           {!isRoot ? (
-            <div className="hidden xl:block mr-4">
+            <div className="hidden text-white xl:block mr-4">
               <ChevronLeft size={30} />
             </div>
           ) : (

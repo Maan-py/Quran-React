@@ -14,7 +14,7 @@ const TabList = ({ surahs }) => {
 const TabSurah = ({ surahs }) => {
   return (
     <>
-      <input type="radio" name="my_tabs_2" role="tab" className="tab text-white" aria-label="Surah" defaultChecked />
+      <input type="radio" name="my_tabs_2" role="tab" className="tab text-slate-400" aria-label="Surah" defaultChecked />
       <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-box p-6 text-white">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {surahs.map((surah) => {
@@ -30,7 +30,7 @@ const TabRevelation = ({ surahs }) => {
   const sortedSurahs = [...surahs].sort((a, b) => a.revelation_order - b.revelation_order);
   return (
     <>
-      <input type="radio" name="my_tabs_2" role="tab" className="tab text-white" aria-label="Revelation Order" style={{ whiteSpace: "nowrap" }} />
+      <input type="radio" name="my_tabs_2" role="tab" className="tab text-slate-400" aria-label="Revelation Order" style={{ whiteSpace: "nowrap" }} />
       <div role="tabpanel" className="tab-content bg-base-100 border-base-300 rounded-box p-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {sortedSurahs.map((surah) => {
