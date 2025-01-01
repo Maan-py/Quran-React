@@ -49,11 +49,11 @@ const ItemSurah = ({ surahs, selectedIndex, onSurahClick }) => {
     <>
       {surahs.map((surah, index) => (
         <Link key={surah.id} to={`/surah/${surah.id}/${surah.name_simple}`}>
-          <div className={`flex justify-between items-center border-b mb-2 mx-2 border-gray-700 ${selectedIndex === index || id == surah.id ? " bg-slate-600 h-20 rounded-md" : ""}`} onClick={() => onSurahClick(surah, index)}>
+          <div className={`flex justify-between text-white items-center border-b mb-2 mx-2 border-gray-700 ${selectedIndex === index || id == surah.id ? " bg-slate-600 h-20 rounded-md" : ""}`} onClick={() => onSurahClick(surah, index)}>
             <div className="flex flex-col w-full justify-center h-20 p-2 rounded-md group cursor-pointer hover:bg-slate-600">
               <div className="flex flex-row">
-                <h2 className="text-white w-12 text-center">{surah.id}.</h2>
-                <h2 className="text-white flex-1">{surah.name_simple}</h2>
+                <h2 className="w-12 text-center">{surah.id}.</h2>
+                <h2 className="flex-1">{surah.name_simple}</h2>
               </div>
               <div className="flex flex-col ml-12">
                 <p className="text-sm">{surah.translated_name.name}</p>

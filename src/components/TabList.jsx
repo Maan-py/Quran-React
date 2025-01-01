@@ -3,7 +3,7 @@ import SurahCard from "./SurahCard";
 const TabList = ({ surahs }) => {
   return (
     <div className="flex justify-center">
-      <div role="tablist" className="tabs tabs-lifted w-full my-20 mx-5 sm:min-w-full md:my-20 md:px-20  md:mx-5 lg:px-20 lg:my-20 text-white">
+      <div role="tablist" className="tabs tabs-lifted w-full my-20 mx-5 sm:min-w-full md:my-20 md:px-20  md:mx-5 lg:px-20 lg:my-20">
         <TabSurah surahs={surahs}></TabSurah>
         <TabRevelation surahs={surahs}></TabRevelation>
       </div>
